@@ -1,0 +1,376 @@
+1.
+class Student:
+    def __init__(self, name):
+        self.name = name
+
+
+
+
+class StudentDatabase:
+    student_list = []
+ 
+    @classmethod
+    def add_student(cls, student):
+        cls.student_list.append(student)
+     
+    # def __repr__(self):
+    #     for student in self.student_list:
+    #         print(student)
+   
+
+
+s1 = Student("sakib")
+s2 = Student("akib")
+
+
+
+
+StudentDatabase.add_student(s1)
+StudentDatabase.add_student(s2)
+
+
+# print(StudentDatabase.__repr__)
+for student in StudentDatabase.student_list:
+    print(student.name)
+
+
+2
+
+class Student:
+    def __init__(self, student_id, name, department, is_enrolled):
+        self.student_id = student_id
+        self.name = name
+        self.department = department
+        self.is_enrolled = is_enrolled
+
+
+    def __repr__(self):
+        return f'student id: {self.student_id}, Name: {self.name}, Department: {self.department}, Enrolled: {self.is_enrolled}'
+
+
+
+
+s1 = Student(101, "sakib khan", "Computer science", True)
+s2 = Student(101, "akib khan", "Computer engr", False)
+
+
+print(s1)
+print(s2)
+
+
+
+3.
+.class Student:
+    def __init__(self, name, student_id, grade):
+        self.name = name
+        self.student_id = student_id
+        self.grade = grade
+
+
+student_list = []
+
+
+def add_student(student):
+    student_list.append(student)
+
+
+student1 = Student("skib khan", '101', "A")
+add_student(student1)
+student2 = Student("akib khan", '102', "B")
+add_student(student2)
+
+
+for student in student_list:
+    print(f'Name: {student.name}, ID: {student.student_id}, Grade: {student.grade}')
+
+4.
+class Student:
+    students = []
+
+
+    def __init__(self, name, student_id):
+        self.name = name
+        self.student_id = student_id
+        self.is_enrolled = False
+
+
+    def enroll_student(self):
+        if not self.is_enrolled:
+            self.is_enrolled = True
+            Student.students.append(self)
+            print(f'Name: {self.name}, ID: {self.student_id}, has been enrolled')
+        else:
+            print(f'Name: {self.name}, ID: {self.student_id}, is already enrolled')
+
+
+    def __repr__(self):
+        return f'Name: {self.name}, ID: {self.student_id}, Enrolled: {self.is_enrolled}'
+
+
+
+
+stu1 = Student('Sakib Khan', 101)
+stu1.enroll_student()
+
+
+stu2 = Student('Akib Khan', 102)
+stu2.enroll_student()
+
+
+stu1.enroll_student()
+
+
+
+
+for student in Student.students:
+    print(student)
+
+
+
+
+5.
+class Student:
+    students = []
+
+
+    def __init__(self, name, student_id):
+        self.name = name
+        self.student_id = student_id
+        self.is_enrolled = False
+
+
+    def enroll_student(self):
+        if not self.is_enrolled:
+            self.is_enrolled = True
+            Student.students.append(self)
+            print(f'Name: {self.name}, ID: {self.student_id}, has been enrolled')
+        else:
+            print(f'Name: {self.name}, ID: {self.student_id}, is already enrolled')
+
+
+    def drop_student(self):
+        if self.is_enrolled:
+            self.is_enrolled = False
+            Student.students.remove(self)
+            print(f'Name: {self.name}, ID: {self.student_id}, has been dropped')
+        else:
+            print(f'Name: {self.name}, ID: {self.student_id}, is not enrolled')
+
+
+    def __repr__(self):
+        return f'Name: {self.name}, ID: {self.student_id}, Enrolled: {self.is_enrolled}'
+
+
+stu1 = Student('Sakib Khan', 101)
+stu1.enroll_student()
+
+
+stu2 = Student('Akib Khan', 102)
+stu2.enroll_student()
+
+
+stu1.enroll_student()
+
+
+stu1.drop_student()
+
+
+stu1.drop_student()
+
+
+
+
+for student in Student.students:
+    print(student)
+
+
+6.
+class Student:
+    students = []  
+
+
+    def __init__(self, name, student_id, department):
+        self.name = name
+        self.student_id = student_id
+        self.department = department
+        self.is_enrolled = False
+
+
+    def enroll_student(self):
+        if not self.is_enrolled:
+            self.is_enrolled = True
+            Student.students.append(self)
+            print(f'Name: {self.name}, ID: {self.student_id}, has been enrolled.')
+        else:
+            print(f'Name: {self.name}, ID: {self.student_id}, is already enrolled.')
+
+
+    def drop_student(self):
+        if self.is_enrolled:
+            self.is_enrolled = False
+            Student.students.remove(self)
+            print(f'Name: {self.name}, ID: {self.student_id}, has been dropped.')
+        else:
+            print(f'Name: {self.name}, ID: {self.student_id}, is not currently enrolled.')
+
+
+    def view_student_info(self):
+        if self.is_enrolled:
+            enrollment_status = "Enrolled"
+        else:
+            enrollment_status = "Not Enrolled"
+        print(f"Student Info:\n"
+              f"Name       : {self.name}\n"
+              f"ID         : {self.student_id}\n"
+              f"Department : {self.department}\n"
+              f"Status     : {enrollment_status}\n")
+
+
+    def __repr__(self):
+        return f'Name: {self.name}, ID: {self.student_id}, Enrolled: {self.is_enrolled}'
+
+
+
+
+
+
+stu1 = Student('Sakib Khan', 101, 'Computer Science')
+stu1.enroll_student()
+
+
+stu2 = Student('Akib Khan', 102, 'Computer Engineering')
+stu2.enroll_student()
+
+
+
+
+stu1.enroll_student()
+
+
+
+
+stu1.view_student_info()
+stu2.view_student_info()
+
+
+
+
+stu1.drop_student()
+
+
+
+
+stu1.drop_student()
+
+
+
+
+for student in Student.students:
+    print(student)
+
+
+
+7.
+class Student:
+    students = []  
+
+
+    def __init__(self, name, student_id, department):
+        self.name = name
+        self.student_id = student_id
+        self.department = department
+        self.is_enrolled = False
+
+
+    def enroll_student(self):
+        if not self.is_enrolled:
+            self.is_enrolled = True
+            Student.students.append(self)
+            print(f'Name: {self.name}, ID: {self.student_id}, has been enrolled.')
+        else:
+            print(f'Name: {self.name}, ID: {self.student_id}, is already enrolled.')
+
+
+    def drop_student(self):
+        if self.is_enrolled:
+            self.is_enrolled = False
+            Student.students.remove(self)
+            print(f'Name: {self.name}, ID: {self.student_id}, has been dropped.')
+        else:
+            print(f'Name: {self.name}, ID: {self.student_id}, is not currently enrolled.')
+
+
+    def view_student_info(self):
+        if self.is_enrolled:
+            enrollment_status = "Enrolled"
+        else:
+            enrollment_status = "Not Enrolled"
+        print(f"Student Info:\n"
+              f"Name       : {self.name}\n"
+              f"ID         : {self.student_id}\n"
+              f"Department : {self.department}\n"
+              f"Status     : {enrollment_status}\n")
+
+
+    def __repr__(self):
+        return f'Name: {self.name}, ID: {self.student_id}, Enrolled: {self.is_enrolled}'
+
+
+student_list = [Student ('sakib khan', 101, ' computer science'),
+                Student ('akib khan', 102, ' computer engineering')  ]
+
+
+def student_with_id(student_id):
+    for student in student_list:
+        if student.student_id == student_id:
+            return student
+    return None
+
+
+def menu():
+    while True:
+        print("\n Student Management system")
+        print("1. View All Students")
+        print("2. Enroll Students")
+        print("3. Drop Students")
+        print("4. Exit")
+        choice = input("Enter your choice (1-4): ")
+
+
+        if choice == '1':
+            print("\n All student info: ")
+            for student in student_list:
+                student.view_student_info()
+        elif choice == '2':
+            student_id = int(input("Enter student id to enroll: "))
+            student = student_with_id(student_id)
+            if student:
+                student.enroll_student()
+            else:
+                print("student not found")            
+        elif choice == '3':
+            student_id = int(input("enter student id to drop: "))
+            student = student_with_id (student_id)
+            if student:
+                student.drop_student()
+            else:
+                print("student not found")    
+        elif choice == '4':
+            print("\n exiting done for now")
+            break
+        else:
+            print("\n Invalid choice, enter a number between 1 and 4.")
+
+
+
+
+menu()        
+
+
+
+
+
+
+
+
+
